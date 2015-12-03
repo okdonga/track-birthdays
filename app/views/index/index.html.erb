@@ -1,0 +1,15 @@
+<h1>welcome to frontpage</h1>
+<h1>Who are you?</h1>
+
+<p>Sign up</p>
+<p>Log in</p>
+
+<%= form_for :user do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
