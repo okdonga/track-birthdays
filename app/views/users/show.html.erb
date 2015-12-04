@@ -2,4 +2,8 @@
 
 <p>Keep track of your friends birthdays here</p>
 
-<%= Friend.all %>
+<% @user.friends.each do |friend| %>
+  <li><%= link_to friend.name, friend_presents_path(friend) %>
+      <%= friend.birthday %>
+  </li>
+<% end %>

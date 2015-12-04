@@ -15,14 +15,15 @@
 
   <tbody>
     <% @presents.each do |present| %>
+      <%= present %>
       <tr>
         <td><%= present.title %></td>
         <td><%= present.description %></td>
         <td><%= present.price %></td>
-        <td><%= present.date_purcahsed %></td>
-        <td><%= link_to 'Show', present %></td>
-        <td><%= link_to 'Edit', edit_present_path(present) %></td>
-        <td><%= link_to 'Destroy', present, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= present.date_purchased %></td>
+
+        <td><%= link_to 'Edit', [:edit, @friend, present] %></td>
+
       </tr>
     <% end %>
   </tbody>

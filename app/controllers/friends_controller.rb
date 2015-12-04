@@ -4,7 +4,12 @@ class FriendsController < ApplicationController
   # GET /friends
   # GET /friends.json
   def index
-    @friends = Friend.all
+    p '4' * 80
+    p session[:user_id] = 1
+    @friends = Friend.where(user_id: session[:user_id])
+    p @friends
+    p "%" * 70
+    # @friends = Friend.all
   end
 
   # GET /friends/1
@@ -63,6 +68,11 @@ class FriendsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+    def find_friends
+      # @friends = User.find(session).friends
+    end
+
     def set_friend
       @friend = Friend.find(params[:id])
     end

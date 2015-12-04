@@ -4,6 +4,7 @@ class CreateFriends < ActiveRecord::Migration
       t.string :name
       t.string :gender
       t.date :birthday
+      t.references :user, index: true
 
       t.timestamps null: false
     end

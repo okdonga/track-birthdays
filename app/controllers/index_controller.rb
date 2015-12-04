@@ -7,5 +7,4 @@ class IndexController < ApplicationController
     # redirect_to
   end
 
-  def
 end
