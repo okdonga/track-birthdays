@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  root 'index#index'
 
   resources :presents
   # The priority is based upon order of creation: first created -> highest priority.
@@ -21,7 +23,6 @@ Rails.application.routes.draw do
     resources :presents
   end
 
-  root 'index#index'
   # Example resource route with options:
   #   resources :products do
   #     member do
