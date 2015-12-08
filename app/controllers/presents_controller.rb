@@ -4,23 +4,23 @@ class PresentsController < ApplicationController
 
   def index
     @presents = Friend.find(params[:friend_id]).presents
-    # find all presents for the particular friend
-    # redirect_to 'friend_presents_path(friend)'
   end
 
   def show
   end
 
   def new
-    @present = @friend.presents.new
+    @present = Friend.find(params[:friend_id]).presents.new
   end
 
   def create
-    @present = @friend.presents.new(present_params)
+    @present = Friend.find(params[:friend_id]).presents.new(present_params)
+
+    # redirect_to friend_presents_path
 
     respond_to do |format|
       if @present.save
-        format.html { redirect_to @present, notice: 'present was successfully created.' }
+        format.html { redirect_to friend_presents_path, notice: 'present was successfully created.' }
         format.json { render :show, status: :created, location: @present }
       else
         format.html { render :new }
@@ -30,9 +30,16 @@ class PresentsController < ApplicationController
   end
 
   def edit
+    p "^" * 80
+    @present = Friend.find(params[:friend_id]).presents.find(params[:id])
+    p "h" * 80
+    p @present
   end
 
   def update
+    @present = Friend.find(params[:friend_id]).presents.find(params[:id])
+    p params
+    p "xefs" * 10
     respond_to do |format|
       if @present.update(present_params)
         format.html { redirect_to friend_presents_path(@friend), notice: 'present was successfully updated.' }
@@ -54,8 +61,13 @@ class PresentsController < ApplicationController
 
   private
 
+  def find_present
+
+  end
+
   def set_present
     @present = Present.find(params[:id])
+    # @present = Friend.find(params[:friend_id]).presents.find(params[:id])
   end
 
   def find_friend

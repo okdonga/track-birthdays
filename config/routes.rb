@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'index#index'
 
-  resources :presents
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :presents
   end
 
-  root 'index#index'
+
   # Example resource route with options:
   #   resources :products do
   #     member do

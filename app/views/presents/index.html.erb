@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Presents</h1>
+<h1>Listing Presents for <%= @friend.name %> </h1>
 
 <table>
   <thead>
@@ -31,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Present', new_present_path %>
+<%= link_to 'New Present', new_friend_present_path(@friend, @present) %>

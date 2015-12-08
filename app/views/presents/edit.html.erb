@@ -1,6 +1,36 @@
 <h1>Editing Present</h1>
+<%= form_for [@friend, @present], url: {action: "update", id: @present} do |f| %>
+  <% if @present.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@present.errors.count, "error") %> prohibited this present from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @present.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Show', @present %> |
-<%= link_to 'Back', presents_path %>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :date_purchased %><br>
+    <%= f.date_select :date_purchased %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', friends_path %>
