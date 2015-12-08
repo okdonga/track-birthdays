@@ -1,4 +1,5 @@
 class PresentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_present, only: [:edit, :update, :destroy]
   before_action :find_friend, only: [:index, :create, :new, :update]
 
